@@ -1,5 +1,5 @@
 # PAC_Bayesian_Generalization
-Code from the paper "PAC-Bayesian Margin Bounds for convolutional neural networks".
+Code from the paper "PAC-Bayesian Margin Bounds for convolutional neural networks". https://arxiv.org/pdf/1801.00171.pdf
 
 <B>GE_estimation_dense.py</B>: Trains a dense neural network and estimates the network training and testing accuracy.
 
