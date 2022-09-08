@@ -3,8 +3,7 @@
 Deep convolutional neural networks (CNNs)
 have been shown to be able to fit a random
 labeling over data while still being able to
-generalize well for normal labels. Describing CNN capacity through a posteriory mea-
-sures of complexity has been recently proposed to tackle this apparent paradox. These
+generalize well for normal labels. Describing CNN capacity through a posteriory measures of complexity has been recently proposed to tackle this apparent paradox. These
 complexity measures are usually validated by
 showing that they correlate empirically with
 GE; being empirically larger for networks
