@@ -1,5 +1,5 @@
 """
-We estimate the spectral norm of a concatenation of convolutional or locally connected matrices. We see that the mean is approximately the same
+In this scripts we estimate the spectral norm of a concatenation of convolutional or locally connected matrices. We see that the mean is approximately the same
 while the variance is greater for the convolutional matrices. We can compute the results for different numbers of input and output channels.
 """
 import numpy as np
@@ -8,6 +8,9 @@ from scipy.linalg import circulant
 
 
 def gen_mat_uncor(N,k,sigma):
+    '''
+    Get uncorrelated matrix.
+    '''
     mask = np.hstack( (np.ones((1,k) ), np.zeros( (1,N-k) )) )
     mask = circulant(mask)
     mat = np.random.normal(0,sigma,(N,N))
@@ -15,11 +18,17 @@ def gen_mat_uncor(N,k,sigma):
     return mat_uncor
 
 def gen_mat_cor(N,k,sigma):
+    '''
+    Get correlated matrix.
+    '''
     filters = np.hstack((np.random.normal(0,sigma,(1,k)),np.zeros((1,N-k))))
     mat_cor =  circulant(filters)
     return mat_cor
 
 def create_cor_tot(a,b,N,k,sigma):
+    '''
+    Create the complete correlated matrix.
+    '''
     mat1 = np.zeros((N*b,N*a))
 
     for i in range(0,b):
@@ -37,6 +46,9 @@ def create_cor_tot(a,b,N,k,sigma):
     return mat1
 
 def create_uncor_tot(a,b,N,k,sigma):
+    '''
+    Create the complete uncorrelated matrix.
+    '''
     mat2 = np.zeros((N * b, N * a))
 
     for i in range(0, b):
@@ -52,6 +64,9 @@ def create_uncor_tot(a,b,N,k,sigma):
     return mat2
 
 def measure_total_matrix(a,b,N,k,sigma,num_trials):
+    '''
+    Estimate the metrics for the matrix of interest.
+    '''
 
     sum_l2_mat1 = 0
     sum_l2_mat2 = 0
@@ -91,19 +106,27 @@ def measure_total_matrix(a,b,N,k,sigma,num_trials):
     return avg_l2_cor,max_l2_cor,min_l2_cor,avg_l2_uncor,max_l2_uncor,min_l2_uncor
 
 def theory_uncor(a,b,k,epsilon,N):
+    '''
+    Estimate the spectral norm for an uncorrelated matrix.
+    '''
 
     uncor = (1+epsilon)*(np.sqrt(k*a)+np.sqrt(k*b)+5*np.sqrt(np.log(np.maximum(N*a,N*b))/np.log(1+epsilon)))
 
     return uncor
 
 def theory_cor(a,b,k,N):
+    '''
+    Estimate the spectral norm for a correlated matrix.
+    '''
 
     #cor = (1.4*np.sqrt(k))*(np.sqrt(a)+np.sqrt(b)+np.sqrt(2*np.log(4*N)))
     cor = 1.4*(np.sqrt(k))*(np.sqrt(a)+np.sqrt(b))
 
     return cor
 
-
+'''
+Set hyperparameters
+'''
 N = 100
 k = 9
 sigma = 1
@@ -136,7 +159,9 @@ for i in range(0,ab_max):
     theory_l2_uncor[i] = theory_uncor(a,b,k,epsilon,N)
 
 
-
+'''
+Plot results
+'''
 fig, ax = plt.subplots()
 ax.grid(linestyle='--',linewidth=1.5,alpha=0.5,zorder=0)
 
@@ -161,29 +186,3 @@ plt.ylabel('E[ ||.||_2 ]')
 plt.xlabel('a,b size')
 
 plt.legend(loc = 3)
-
-'''
-num_bins = 50
-plt.figure()
-plt.hist(dist_mat1,bins = num_bins,label='Correlated')
-plt.hist(dist_mat2,bins = num_bins,label='Uncorrelated')
-plt.legend()
-
-#plt.figure()
-plt.matshow(mat1,cmap='RdBu_r')
-plt.title('Correlated')
-
-#plt.figure()
-plt.matshow(mat2,cmap='RdBu_r')
-plt.title('Uncorrelated')
-
-
-prod = mat1@mat1
-'''
-
-
-
-end =1
-
-
-
