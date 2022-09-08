@@ -30,7 +30,6 @@ test_spectral_convolutional_variable_ab.py: Calculates the spectral norm for loc
 ```
 
 <h2> :memo: Citation </h2>
-
 When citing this repository on your scientific publications please use the following **BibTeX** citation:
 
 ```bibtex
