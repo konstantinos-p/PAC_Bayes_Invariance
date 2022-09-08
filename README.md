@@ -24,8 +24,9 @@ tures (which don’t have the same favorable
 invariance properties). This is contrary to
 common intuition and empirical results.
 
-```
+<h2> :boom: Files </h2>
 
+```
 GE_estimation_dense.py: Trains a dense neural network and estimates the network training and testing accuracy.
 
 GE_estimation_locally_connected.py: Trains a locally connected neural network and estimates the network training and testing accuracy.
@@ -60,7 +61,6 @@ You can contact me at any of my social network profiles:
 Or via email at cwstas2007@hotmail.com
 
 <h2> :warning: Disclaimer </h2>
-This Python package has been made for research purposes, in particular the accuracy of only a small part of the
-voting intention data has been independently verified.
+This Python package has been made for research purposes.
 
 
