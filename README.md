@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="metrics.png" height="150"/>
+    <img src="metrics.png" height="250"/>
 </p>
 
 <h2 align="center">The role of invariance in spectral complexity-based generalization bounds.</h2>
