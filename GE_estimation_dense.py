@@ -25,8 +25,7 @@ set_session(tf.Session(config=config))
 
 
 """
-In this script we train 3 simple 3-layer neural networks. We use 2 non-linear layers and 1 linear layer. We alternate between
-convolutional, locally connected and dense non-linear layers.
+In this script we train a 3-layer neural networks. We use 2 dense non-linear layers and 1 linear layer.
 """
 
 
