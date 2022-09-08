@@ -1,19 +1,20 @@
 """
-In this script we have functions that calculate the spectral norm for different keras layers.
+In this script define functions that calculate the spectral norm for different keras layers.
 Specifically we can calculate the spectral norm of
 1) convolutional
 2) locally connected layers
-. This is a difficult problem as the full operators are huge sparse matrices.
+This is a difficult problem as the full operators are large sparse matrices.
 """
 
 import numpy as np
 from keras.callbacks import Callback
 
 def compute_spectral_norm_of_conv(weights,featuremap_dim):
-    # The dimensions of the weight matrix are
-    # trainable_weights[0] = (filter_d1,filter_d2,input_channels,output_channels) This is the kernel.
-    # trainable_weights[1] = (output_channels) This is the bias.
-
+    '''
+    The dimensions of the weight matrix are
+    trainable_weights[0] = (filter_d1,filter_d2,input_channels,output_channels) This is the kernel.
+    trainable_weights[1] = (output_channels) This is the bias.
+    '''
     dim1 = weights.shape[0]
     dim2 = weights.shape[1]
     dim3 = weights.shape[2]
@@ -36,10 +37,11 @@ def compute_spectral_norm_of_conv(weights,featuremap_dim):
     return max_l2
 
 def compute_spectral_norm_of_locally_connected(weights,featuremap_dim,epsilon,max_it,hta):
-    # The dimensions of the weight matrix are
-    # trainable_weights[0] = (filter_d1,filter_d2,input_channels,output_channels) This is the kernel.
-    # trainable_weights[1] = (output_channels) This is the bias.
-
+    '''
+    The dimensions of the weight matrix are
+    trainable_weights[0] = (filter_d1,filter_d2,input_channels,output_channels) This is the kernel.
+    trainable_weights[1] = (output_channels) This is the bias.
+    '''
     dim1 = weights.shape[0]
     dim2 = weights.shape[1]
     dim3 = weights.shape[2]
@@ -74,7 +76,9 @@ def compute_spectral_norm_of_locally_connected(weights,featuremap_dim,epsilon,ma
 
 #Create Parseval Regularisation
 class convParsevalReg(Callback):
-
+    '''
+    This is the parseval regularization class for a convolutional layer.
+    '''
     def __init__(self,layer_name,beta_par):
         self.validation_data = None
         self.model = None
@@ -118,7 +122,9 @@ class convParsevalReg(Callback):
         conv_layer.set_weights([weights,bias])
 
 class denseParsevalReg(Callback):
-
+    '''
+    This is the parseval regularization class for a dense layer.
+    '''
     def __init__(self,layer_name,beta_par,subsampling):
         self.validation_data = None
         self.model = None
@@ -147,7 +153,9 @@ class denseParsevalReg(Callback):
         dense_layer.set_weights([dense_weights,bias])
 
 class localParsevalReg(Callback):
-
+    '''
+    This is the parseval regularization class for a locally connected layer.
+    '''
     def __init__(self,layer_name,beta_par):
         self.validation_data = None
         self.model = None
