@@ -1,4 +1,5 @@
-# PAC_Bayesian_Generalization
+# The role of invariance in spectral complexity-based generalization bounds
+
 Code from the paper "PAC-Bayesian Margin Bounds for convolutional neural networks". https://arxiv.org/pdf/1905.09677.pdf
 
 <B>GE_estimation_dense.py</B>: Trains a dense neural network and estimates the network training and testing accuracy.
