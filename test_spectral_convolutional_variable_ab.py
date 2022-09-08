@@ -1,10 +1,12 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.linalg import circulant
+
 """
 In this scripts we estimate the spectral norm of a concatenation of convolutional or locally connected matrices. We see that the mean is approximately the same
 while the variance is greater for the convolutional matrices. We can compute the results for different numbers of input and output channels.
 """
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.linalg import circulant
+
 
 
 def gen_mat_uncor(N,k,sigma):
