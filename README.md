@@ -4,20 +4,7 @@
 
 <h2 align="center">The role of invariance in spectral complexity-based generalization bounds.</h2>
 
-Deep convolutional neural networks (CNNs)
-have been shown to be able to fit a random
-labeling over data while still being able to
-generalize well for normal labels. Describing CNN capacity through a posteriory measures of complexity has been recently proposed to tackle this apparent paradox. These
-complexity measures are usually validated by
-showing that they correlate empirically with
-GE; being empirically larger for networks
-trained on random vs normal labels. Focusing on the case of spectral complexity we investigate theoretically and empirically the insensitivity of the complexity measure to invariances relevant to CNNs, and show several
-limitations of spectral complexity that occur
-as a result. For a specific formulation of spectral complexity we show that it results in the
-same upper bound complexity estimates for
-convolutional and locally connected architectures (which don’t have the same favorable
-invariance properties). This is contrary to
-common intuition and empirical results.
+Deep convolutional neural networks (CNNs) have been shown to be able to fit a random labeling over data while still being able to generalize well for normal labels. Describing CNN capacity through a posteriory measures of complexity has been recently proposed to tackle this apparent paradox. These complexity measures are usually validated by showing that they correlate empirically with GE; being empirically larger for networks trained on random vs normal labels. Focusing on the case of spectral complexity we investigate theoretically and empirically the insensitivity of the complexity measure to invariances relevant to CNNs, and show several limitations of spectral complexity that occur as a result. For a specific formulation of spectral complexity we show that it results in the same upper bound complexity estimates for convolutional and locally connected architectures (which don’t have the same favorable invariance properties). This is contrary to common intuition and empirical results.
 
 <h2> :boom: Files </h2>
 
