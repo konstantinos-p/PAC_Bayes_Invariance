@@ -23,12 +23,12 @@ config.gpu_options.allow_growth = True
 set_session(tf.Session(config=config))
 # !!! Limit memory consumption
 
-# !!!!!!
+
 """
-Here we train 3 simple 3-layer neural networks. We use 2 non-linear layers and 1 linear layer. We alternate between
+In this script we train 3 simple 3-layer neural networks. We use 2 non-linear layers and 1 linear layer. We alternate between
 convolutional, locally connected and dense non-linear layers.
 """
-# !!!!!!
+
 
 
 # fix random seed for reproducibility
@@ -104,5 +104,3 @@ model3_dense3 = np.linalg.norm(tmp_weights)*np.linalg.norm(tmp_weights)
 print('Dense layer 1 ||.||_F^2: ',model3_dense1)
 print('Dense layer 2 ||.||_F^2: ',model3_dense2)
 print('Dense layer 3 ||.||_F^2: ',model3_dense3)
-
-end  = 1
