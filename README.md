@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="metrics.png" height="150"/>
+</p>
+
 <h2 align="center">The role of invariance in spectral complexity-based generalization bounds.</h2>
 
 Deep convolutional neural networks (CNNs)
